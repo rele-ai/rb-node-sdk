@@ -13,6 +13,14 @@ class Request {
     }
 
     /**
+     * Return the headers from the request
+     * metadata
+     */
+    get headers() {
+        return this._call.metadata.getMap()
+    }
+
+    /**
      * Returns the operation key of the request
      * from the call data
      */

@@ -25,7 +25,7 @@ module.exports.notifyHandler = (operations, serverConfs) => ({
         for (const mw of Object.values(serverConfs.middlewares)) {
             // execute middleware and stop handler in case of
             // blocked request
-            if (mw(request, response)) {
+            if (!mw(request, response, serverConfs)) {
                 return
             }
         }
