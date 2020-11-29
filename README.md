@@ -11,7 +11,7 @@ const { appId, appHash } = Releai.createNewApp({
 })
 
 // Initiate new releai bot client.
-const rbc = new Releai({
+const rbc = new RBC({
     appId,
     appHash,
 })
@@ -35,5 +35,22 @@ console.log(response)
 
 ## Server Usage Example
 ```javascript
+// initiate the bot server
+const rbs = new RBS({
+    appId,
+    appHash,
+})
 
+// Register operation handler for a given operation
+rbs.registerOperation("record_note", async (req, res) => {
+    // do some logic here...
+
+    // reply with the payload data
+    res.json({
+        ...<response payload>
+    })
+})
+
+// run server
+rbs.listen(50003)
 ```
