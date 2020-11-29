@@ -39,6 +39,11 @@ const response = await rbc.notify(
         "foo": {
             "bar": 1
         }
+    },
+
+    // send additional headers
+    {
+        "example-header-key": "value"
     }
 )
 
