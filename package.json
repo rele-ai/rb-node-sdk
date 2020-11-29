@@ -2,8 +2,10 @@
   "name": "@releai/rb-node-sdk",
   "version": "0.1.0",
   "description": "RELE.AI Node SDK provides a simple interface to manage integrated applications",
-  "main": "index.js",
-  "scripts": {},
+  "main": "src/index.js",
+  "scripts": {
+    "build:proto": "bash ./files/scripts/build-proto.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rele-ai/rb-node-sdk.git"
@@ -23,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/rele-ai/rb-node-sdk/issues"
   },
-  "homepage": "https://github.com/rele-ai/rb-node-sdk#readme"
+  "homepage": "https://github.com/rele-ai/rb-node-sdk#readme",
+  "dependencies": {
+    "google-protobuf": "^3.14.0",
+    "grpc": "^1.24.4",
+    "winston": "^3.3.3"
+  }
 }

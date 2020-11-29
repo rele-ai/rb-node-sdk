@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package integratedapp;
+
+import "google/protobuf/struct.proto";
+
+// ---------- Hubspot Service ----------
+service IntegratedApps {
+  // Notify the integrated application about the message
+  rpc Notify(NotifyRequest) returns (NotifyResponse) {}
+}
+
+// ----------- messages:internal -----------
+message NotifyRequest {
+  // define the type of operation
+  string operation_key = 1;
+
+  // the payload of the request
+  // value is used for free data formats
+  google.protobuf.Struct payload = 2;
+}
+
+message NotifyResponse {
+  // define the operation type
+  string operation_key = 1;
+
+  // the payload of the response
+  // struct is a free map[string]Value{} object
+  google.protobuf.Struct payload = 2;
+}
