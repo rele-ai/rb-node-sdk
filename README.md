@@ -42,6 +42,16 @@ const response = await rb.notify(
 console.log(response)
 ```
 
+## REST Formatter Example
+```javascript
+const { format } = require("@releai/rb-node-sdk")
+
+// format payload to gRPC struct format
+const payload = format({
+    // payload
+})
+```
+
 ## Server Usage Example
 ```javascript
 // initiate the bot server
