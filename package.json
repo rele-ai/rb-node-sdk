@@ -1,0 +1,27 @@
+{
+  "name": "@releai/rb-node-sdk",
+  "version": "0.1.0",
+  "description": "RELE.AI Node SDK provides a simple interface to manage integrated applications",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rele-ai/rb-node-sdk.git"
+  },
+  "keywords": [
+    "rele.ai",
+    "sdk",
+    "chat",
+    "bot"
+  ],
+  "author": {
+    "name": "Elon Salfati",
+    "email": "support@rele.ai",
+    "url": "https://rele.ai"
+  },
+  "license": "Apache License",
+  "bugs": {
+    "url": "https://github.com/rele-ai/rb-node-sdk/issues"
+  },
+  "homepage": "https://github.com/rele-ai/rb-node-sdk#readme"
+}
