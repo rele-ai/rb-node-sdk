@@ -2,14 +2,23 @@
 
 RELE.AI Node SDK provides an easy interface to manage, create, and integrate applications to Clara.
 
-## Client Usage Examples
+## Create Application
+Through the JS SDK:
 ```javascript
 // first time app creation can be accessed
 // from the CLI as well.
 const { appId, appHash } = Releai.createNewApp({
-    ...<app info>
+    // app info
 })
+```
 
+Through the CLI:
+```bash
+rb apply -c ./path/to/config.json
+```
+
+## Client Usage Examples
+```javascript
 // Initiate new releai bot client.
 const rbc = new RBC({
     appId,
@@ -47,7 +56,7 @@ rbs.registerOperation("record_note", async (req, res) => {
 
     // reply with the payload data
     res.json({
-        ...<response payload>
+        // response payload
     })
 })
 
