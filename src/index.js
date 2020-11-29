@@ -3,11 +3,6 @@
  */
 module.exports = {
     /**
-     * CLI interface and utils.
-     */
-    cli: require("./cli"),
-
-    /**
      * Formatter utils from json to struct
      * json format that is accepted by the integrations
      * gateway.
