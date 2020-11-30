@@ -6,14 +6,14 @@ const { IntegratedAppsService } = require("../pb/integratedapp_grpc_pb")
 
 /**
  * RBS - Releai Bot Server
- * 
+ *
  * Helps you to create a simple integrated application
  * with rele.ai.
  */
 class RBS {
     /**
      * Initiate the releai bot server instance.
-     * 
+     *
      * @param {object} confs - Server configurations.
      */
     constructor(confs) {
@@ -50,7 +50,7 @@ class RBS {
     /**
      * Returns a full version of the server configurations
      * contact to the user configs.
-     * 
+     *
      * @param {object} userConfs - The user configurations.
      * @returns {object} - Server configurations.
      */
@@ -73,7 +73,7 @@ class RBS {
 
     /**
      * Register a new handler for the application.
-     * 
+     *
      * @param {string} operationKey - The operation key name.
      * @param {Function} callback - The handler for the request.
      */
@@ -83,9 +83,21 @@ class RBS {
     }
 
     /**
+     * Register the provided handlers.
+     *
+     * @param {object} handlers - Handlers object.
+     */
+    use(handlers) {
+        // iterate over the module and register the handlers
+        for (const [operationKey, callback] of Object.entries(handlers)) {
+            this.registerOperation(operationKey, callback)
+        }
+    }
+
+    /**
      * Sign and start the gRPC server on the provided
      * host:port.
-     * 
+     *
      * @param {number} port - The port number.
      * @param {string} [host=0.0.0.0] - The target host.
      */

@@ -13,6 +13,8 @@ const { RBC } = require("@releai/rb-node-sdk")
 const rbc = new RBC({
     appId,
     appHash,
+    host,
+    port,
 })
 
 // send notification to endpoint
