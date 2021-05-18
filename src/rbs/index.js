@@ -139,4 +139,5 @@ class RBS {
   }
 }
 
+RBS.Router = require("./router")
 module.exports = RBS
