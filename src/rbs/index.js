@@ -101,7 +101,7 @@ class RBS {
       // get routes object
       if (handlers.constructor === Router) {
         routes = handlers.routes
-      } else if (handler.constructor === Object) {
+      } else if (handlers.constructor === Object) {
         console.warn("Direct usage of objects as routes will be deprecated. Please use the Router object instead.")
         routes = handlers
       } else {
