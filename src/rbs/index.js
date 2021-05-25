@@ -1,3 +1,6 @@
+const os = require("os")
+const fs = require("fs")
+const path = require("path")
 const grpc = require("grpc")
 const Router = require("./router")
 const logger = require("../utils/logger")
@@ -118,6 +121,22 @@ class RBS {
   }
 
   /**
+   * Share address to tmp .env file.
+   *
+   * @param {string} host - Host address.
+   * @param {number} port - Server port.
+   */
+  _shareAddr(host, port) {
+    // create tmp dir
+    const tmpdir = path.join(os.tmpdir(), ".rb")
+    if (!fs.existsSync(tmpdir)) fs.mkdirSync(tmpdir)
+
+    // write to tmp file
+    const envfile = path.join(tmpdir, ".env.server")
+    fs.writeFileSync(envfile, `RB_HOST=${host}\nRB_PORT=${port}`)
+  }
+
+  /**
   * Sign and start the gRPC server on the provided
   * host:port.
   *
@@ -125,6 +144,9 @@ class RBS {
   * @param {string} [host=0.0.0.0] - The target host.
   */
   listen(port, host="0.0.0.0") {
+    // required for rb dev script - export port and host
+    this._shareAddr(host, port)
+
     // init the server
     this._initGrpcServer()
 
