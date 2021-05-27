@@ -34,7 +34,7 @@ mkdir -p ./src/pb
 
 # build tools
 grpc_tools_node_protoc \
-    -I ./files/proto \
+    -I ../proto \
     -I $GOPATH \
     --js_out=import_style=commonjs,binary:./src/pb/ \
      --grpc_out=generate_package_definition:./src/pb \
