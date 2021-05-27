@@ -1,4 +1,4 @@
-const grpc = require("grpc")
+const grpc = require("@grpc/grpc-js")
 const Error = require("./error")
 const Response = require("./response")
 const logger = require("../utils/logger")
@@ -13,6 +13,7 @@ const googleProtobufStructPb = require("google-protobuf/google/protobuf/struct_p
  * logic.
  */
 class RBC {
+   
     /**
      * Initiate the releai bot client instance.
      * 
