@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require("@grpc/grpc-js")
 var integratedapp_pb = require('./integratedapp_pb.js');
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js');
 
@@ -29,7 +28,7 @@ function deserialize_integratedapp_NotifyResponse(buffer_arg) {
 
 
 // ---------- Hubspot Service ----------
-var IntegratedAppsService = exports.IntegratedAppsService = {
+exports.IntegratedAppsService = exports['integratedapp.IntegratedApps'] = {
   // Notify the integrated application about the message
 notify: {
     path: '/integratedapp.IntegratedApps/Notify',
@@ -44,4 +43,4 @@ notify: {
   },
 };
 
-exports.IntegratedAppsClient = grpc.makeGenericClientConstructor(IntegratedAppsService);
+

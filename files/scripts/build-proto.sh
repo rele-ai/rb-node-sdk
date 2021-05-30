@@ -37,7 +37,6 @@ grpc_tools_node_protoc \
     -I ../proto \
     -I $GOPATH \
     --js_out=import_style=commonjs,binary:./src/pb/ \
-     --grpc_out=generate_package_definition:./src/pb \
-    --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` \
+    --grpc_out=./src/pb \
     "integratedapp.proto"
 
