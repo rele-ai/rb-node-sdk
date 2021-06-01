@@ -135,7 +135,13 @@ class RBS {
     const envfile = path.join(tmpdir, ".env.server")
     fs.writeFileSync(envfile, `RB_HOST=${host}\nRB_PORT=${port}`)
   }
-  
+
+  /**
+   * bind to host:port
+   *
+   * @param {string} host - Host address.
+   * @param {number} port - Server port.
+   */
   _bindPort(host,port){
     this._server.bindAsync(
       `${host}:${port}`,
