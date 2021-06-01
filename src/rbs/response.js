@@ -1,4 +1,4 @@
-const grpc = require("grpc")
+const grpc = require("@grpc/grpc-js")
 const { NotifyResponse } = require("../pb/integratedapp_pb")
 const googleProtobufStructPb = require("google-protobuf/google/protobuf/struct_pb.js")
 

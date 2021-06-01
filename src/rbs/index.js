@@ -1,7 +1,7 @@
 const os = require("os")
 const fs = require("fs")
 const path = require("path")
-const grpc = require("grpc")
+const grpc = require("@grpc/grpc-js")
 const Router = require("./router")
 const logger = require("../utils/logger")
 const middlewares = require("./middlewares")
@@ -137,6 +137,31 @@ class RBS {
   }
 
   /**
+   * bind to host:port
+   *
+   * @param {string} host - Host address.
+   * @param {number} port - Server port.
+   */
+  _bindPort(host,port){
+    this._server.bindAsync(
+      `${host}:${port}`,
+      this._confs.grpc.creds,
+      (err, port) => {
+        if (err != null) {
+          logger.info(`error while trying to bind on port :${port}`)
+        } else {
+          logger.info(`server bind sucsses using port:${port}`)
+          
+          // listen on port
+          this._server.start()
+
+          // log
+          logger.info({ message: "server running", port, host })
+        }
+      })
+  }
+
+  /**
   * Sign and start the gRPC server on the provided
   * host:port.
   *
@@ -151,10 +176,7 @@ class RBS {
     this._initGrpcServer()
 
     // bind to host:port
-    this._server.bind(`${host}:${port}`, this._confs.grpc.creds)
-
-    // listen on port
-    this._server.start()
+    this._server._bindPort(host,port)
 
     // log
     logger.info({ message: "server running", port, host })

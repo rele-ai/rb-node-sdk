@@ -1,4 +1,4 @@
-const grpc = require("grpc")
+const grpc = require("@grpc/grpc-js")
 const Error = require("./error")
 const Response = require("./response")
 const logger = require("../utils/logger")
