@@ -176,7 +176,7 @@ class RBS {
     this._initGrpcServer()
 
     // bind to host:port
-    this._server._bindPort(host,port)
+    this._bindPort(host,port)
 
     // log
     logger.info({ message: "server running", port, host })
