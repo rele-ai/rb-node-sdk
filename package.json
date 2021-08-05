@@ -1,6 +1,6 @@
 {
   "name": "@releai/rb-node-sdk",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "RELE.AI Node SDK provides a simple interface to manage integrated applications",
   "main": "src/index.js",
   "scripts": {
