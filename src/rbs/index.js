@@ -24,9 +24,21 @@ class RBS {
     // get full server configurations
     this._confs = this._getFullConfs(confs)
 
+
     // check app id and app hash
-    if (!this._confs.appId) throw new Error(`APP_ID is a required attribute`)
-    if (!this._confs.appHash) throw new Error(`APP_HASH is a required attribute`)
+    if (!this._confs.appId){
+      logger.debug({
+        message: "APP_ID attribute is missing",
+      })
+      throw new Error(`APP_ID is a required attribute`)
+    }
+
+    if (!this._confs.appHash) {
+      logger.debug({
+        message: "APP_HASH attribute is missing",
+      })
+      throw new Error(`APP_HASH is a required attribute`)
+    }
 
     logger.debug({
       message: "initialize RBS with user confs",
@@ -151,7 +163,7 @@ class RBS {
           logger.info(`error while trying to bind on port :${port}`)
         } else {
           logger.info(`server bind sucsses using port:${port}`)
-          
+
           // listen on port
           this._server.start()
 
